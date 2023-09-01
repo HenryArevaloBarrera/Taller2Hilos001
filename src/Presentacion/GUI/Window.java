@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 import java.net.URL;
 
 public class Window extends JFrame implements ActionListener, ChangeListener {
-
+    private final JLabel panel0;
     private final JLabel panel1;
     private final JLabel panel2;
     private final JLabel panel3;
@@ -23,17 +23,25 @@ public class Window extends JFrame implements ActionListener, ChangeListener {
     ImageIcon nuestroIcono = new ImageIcon("src/Presentacion/Recursos/fondo1.jpg");
     ImageIcon nuestroIcono2 = new ImageIcon("src/Presentacion/Recursos/imagen2.png");
     ImageIcon nuestroIcono3 = new ImageIcon("src/Presentacion/Recursos/imagen1.png");
+    ImageIcon nuestroIcono4 = new ImageIcon("src/Presentacion/Recursos/imagen3.png");
 
     public Window() {
         Font font = new Font("Arial", Font.PLAIN, 100);
         Font font1 = new Font("Arial", Font.PLAIN, 20);
+
+        this.panel0 = new JLabel();
+        this.panel0.setBounds(10, 10, 80, 50);
+        this.panel0.setBackground(new Color(200, 200, 200));
+        this.panel0.setBorder(null);
+        this.panel0.setFont(font);
+        this.panel0.setIcon(nuestroIcono4);
+
 
         this.panel1 = new JLabel("1");
         this.panel1.setBounds(70, 80, 100, 100);
         this.panel1.setBackground(new Color(200, 200, 200));
         this.panel1.setBorder(null);
         this.panel1.setFont(font);
-
 
         this.panel2 = new JLabel("2");
         this.panel2.setBounds(190, 80, 100, 100);
@@ -77,6 +85,7 @@ public class Window extends JFrame implements ActionListener, ChangeListener {
         return1.setBorderPainted(false);
 
         JLabel panel = new JLabel();
+        this.add(this.panel0);
         this.add(this.panel1);
         this.add(this.panel2);
         this.add(this.panel3);

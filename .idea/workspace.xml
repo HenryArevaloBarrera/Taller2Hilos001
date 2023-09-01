@@ -7,7 +7,6 @@
     <list default="true" id="0ffc3e2f-af51-4007-974a-63af54c2f712" name="Changes" comment="001">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Presentacion/GUI/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentacion/GUI/Window.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Recursos/fondo1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentacion/Recursos/fondo1.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +58,7 @@
       <option name="presentableId" value="Default" />
       <updated>1693368200079</updated>
       <workItem from="1693368201033" duration="2861000" />
-      <workItem from="1693450179523" duration="10808000" />
+      <workItem from="1693450179523" duration="12498000" />
     </task>
     <task id="LOCAL-00001" summary="001">
       <option name="closed" value="true" />
@@ -101,7 +100,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693530906525</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="001">
+      <option name="closed" value="true" />
+      <created>1693535608999</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1693535608999</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
