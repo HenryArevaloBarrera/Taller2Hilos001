@@ -17,10 +17,12 @@ public class Window extends JFrame implements ActionListener, ChangeListener {
     private final JButton boton;
     private final JButton boton1;
     private final JButton boton2;
+    private final JButton return1;
 
-    public Image imagenfonndo;
-    public URL fondo;
 
+    ImageIcon nuestroIcono = new ImageIcon("src/Presentacion/Recursos/fondo1.jpg");
+    ImageIcon nuestroIcono2 = new ImageIcon("src/Presentacion/Recursos/imagen2.png");
+    ImageIcon nuestroIcono3 = new ImageIcon("src/Presentacion/Recursos/imagen1.png");
 
     public Window() {
         Font font = new Font("Arial", Font.PLAIN, 100);
@@ -65,19 +67,30 @@ public class Window extends JFrame implements ActionListener, ChangeListener {
         this.boton2.setBackground(new Color(230, 230, 230));
         this.boton2.addActionListener(this);
 
-        JPanel panel = new JPanel();
+
+        this.return1 = new JButton();
+        this.return1.setBounds(450, 50, 50, 200);
+        this.return1.setFont(font1);
+        this.return1.setBackground(new Color(230, 230, 230));
+        this.return1.addActionListener(this);
+        return1.setIcon(nuestroIcono3);
+        return1.setBorderPainted(false);
+
+        JLabel panel = new JLabel();
         this.add(this.panel1);
         this.add(this.panel2);
         this.add(this.panel3);
         this.add(this.boton);
         this.add(this.boton1);
         this.add(this.boton2);
+        this.add(this.return1);
+        panel.setIcon(nuestroIcono);
 
 
         this.setResizable(false);
         this.add(panel);
 
-        this.setSize(500, 330);
+        this.setSize(530, 330);
         this.setTitle("Juego Con Hilos");
         this.setVisible(true);
 
@@ -90,7 +103,15 @@ public class Window extends JFrame implements ActionListener, ChangeListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == this.boton) {
+        if (e.getSource() == this.return1) {
+            return1.setIcon(nuestroIcono2);
+            Timer timer = new Timer(500, new ActionListener() {
+                public void actionPerformed(ActionEvent evt) {
+                    return1.setIcon(nuestroIcono3);
+                }
+            });
+            timer.setRepeats(false);
+            timer.start();
 
         }
         if (e.getSource() == this.boton1) {
