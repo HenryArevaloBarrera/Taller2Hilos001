@@ -1,5 +1,6 @@
 package Presentacion.GUI;
 
+
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -24,6 +25,7 @@ public class WindowTwo extends JFrame implements ActionListener, ChangeListener 
         this.envio = new JButton("Iniciar Juego");
         this.envio.setBounds(20, 410, 120, 20);
         this.envio.addActionListener(this);
+
 
         this.salir = new JButton("salir");
         this.salir.setBounds(160, 410, 120, 20);
@@ -88,9 +90,22 @@ public class WindowTwo extends JFrame implements ActionListener, ChangeListener 
             this.dispose();
         }
         if (e.getSource() == this.envio) {
-            Window window = new Window();
-            window.setVisible(true);
-            this.dispose();
+            if (this.nombre.getText().equals("")) {
+                System.out.println(" AGREGAR noMBRE pRIMERO");
+            } else {
+                if (this.valor.getText().equals("")) {
+                    System.out.println(" aFREGAR vALOR dE LA aPUEStA pRIMERO");
+                } else {
+                    if (valor.getText().matches("\\d+")) {
+                        Window window = new Window(valor.getText());
+                        window.setVisible(true);
+                        this.dispose();
+                    } else {
+                        System.out.println(" valor no es numero");
+                    }
+                }
+            }
+
         }
     }
 

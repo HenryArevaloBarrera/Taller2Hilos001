@@ -8,7 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Presentacion/GUI/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentacion/GUI/Window.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Presentacion/GUI/WindowTwo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentacion/GUI/WindowTwo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Presentacion/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentacion/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +61,7 @@
       <workItem from="1693368201033" duration="2861000" />
       <workItem from="1693450179523" duration="13506000" />
       <workItem from="1693605541712" duration="1201000" />
-      <workItem from="1693611837229" duration="10480000" />
+      <workItem from="1693611837229" duration="15243000" />
     </task>
     <task id="LOCAL-00001" summary="001">
       <option name="closed" value="true" />
@@ -128,11 +127,30 @@
       <option name="project" value="LOCAL" />
       <updated>1693616328096</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="001">
+      <option name="closed" value="true" />
+      <created>1693668482742</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1693668482742</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="001" />

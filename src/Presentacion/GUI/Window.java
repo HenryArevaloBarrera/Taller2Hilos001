@@ -11,6 +11,7 @@ import java.net.URL;
 
 public class Window extends JFrame implements ActionListener, ChangeListener {
     private final JLabel panel0;
+    private final JLabel valor;
     private final JLabel panel1;
     private final JLabel panel2;
     private final JLabel panel3;
@@ -25,9 +26,16 @@ public class Window extends JFrame implements ActionListener, ChangeListener {
     ImageIcon nuestroIcono3 = new ImageIcon("src/Presentacion/Recursos/imagen1.png");
     ImageIcon nuestroIcono4 = new ImageIcon("src/Presentacion/Recursos/imagen3.png");
 
-    public Window() {
+    public Window(String valorApuesta) {
         Font font = new Font("Arial", Font.PLAIN, 100);
         Font font1 = new Font("Arial", Font.PLAIN, 20);
+
+        this.valor = new JLabel(""+valorApuesta);
+        this.valor.setBounds(90, 10, 80, 50);
+        this.valor.setBackground(new Color(200, 200, 200));
+        this.valor.setBorder(null);
+        this.valor.setFont(font1);
+        this.valor.setForeground(Color.WHITE);
 
         this.panel0 = new JLabel();
         this.panel0.setBounds(10, 10, 80, 50);
@@ -88,6 +96,7 @@ public class Window extends JFrame implements ActionListener, ChangeListener {
         return1.setBorderPainted(false);
 
         JLabel panel = new JLabel();
+        this.add(this.valor);
         this.add(this.panel0);
         this.add(this.panel1);
         this.add(this.panel2);
@@ -109,7 +118,7 @@ public class Window extends JFrame implements ActionListener, ChangeListener {
     }
 
     public static void main(String[] args) {
-        new Window();
+        new Window("");
     }
 
 
