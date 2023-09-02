@@ -42,12 +42,14 @@ public class Window extends JFrame implements ActionListener, ChangeListener {
         this.panel1.setBackground(new Color(200, 200, 200));
         this.panel1.setBorder(null);
         this.panel1.setFont(font);
+        this.panel1.setForeground(Color.WHITE);
 
         this.panel2 = new JLabel("2");
         this.panel2.setBounds(190, 80, 100, 100);
         this.panel2.setBackground(new Color(200, 200, 200));
         this.panel2.setBorder(null);
         this.panel2.setFont(font);
+        this.panel2.setForeground(Color.WHITE);
 
 
         this.panel3 = new JLabel("3");
@@ -55,6 +57,7 @@ public class Window extends JFrame implements ActionListener, ChangeListener {
         this.panel3.setBackground(new Color(200, 200, 200));
         this.panel3.setBorder(null);
         this.panel3.setFont(font);
+        this.panel3.setForeground(Color.WHITE);
 
 
         this.boton = new JButton("STOP");

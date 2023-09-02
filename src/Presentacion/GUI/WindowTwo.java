@@ -9,11 +9,48 @@ import java.awt.event.ActionListener;
 
 public class WindowTwo extends JFrame implements ActionListener, ChangeListener {
     private final JTextArea panel0;
+    private final JTextArea txtNombre;
+    private final JTextArea txtValor;
+    private final JTextField nombre;
+    private final JTextField valor;
+    private final JButton envio;
+    private final JButton salir;
 
     public WindowTwo() {
         ImageIcon nuestroIcono = new ImageIcon("src/Presentacion/Recursos/fondo1.jpg");
         JLabel panel = new JLabel();
         panel.setIcon(nuestroIcono);
+
+        this.envio = new JButton("Iniciar Juego");
+        this.envio.setBounds(20, 410, 120, 20);
+        this.envio.addActionListener(this);
+
+        this.salir = new JButton("salir");
+        this.salir.setBounds(160, 410, 120, 20);
+        this.salir.addActionListener(this);
+
+        this.txtNombre = new JTextArea("Nombre Jugador :");
+        this.txtNombre.setBounds(30, 330, 200, 20);
+        this.txtNombre.setLineWrap(true);
+        this.txtNombre.setFont(new Font("Tahoma", Font.BOLD, 12));
+        this.txtNombre.setOpaque(false);
+        this.txtNombre.setForeground(Color.WHITE);
+
+        this.txtValor = new JTextArea("Valor De La Apuesta:");
+        this.txtValor.setBounds(30, 360, 200, 20);
+        this.txtValor.setLineWrap(true);
+        this.txtValor.setFont(new Font("Tahoma", Font.BOLD, 12));
+        this.txtValor.setOpaque(false);
+        this.txtValor.setForeground(Color.WHITE);
+
+
+        this.nombre = new JTextField();
+        this.nombre.setBounds(160, 330, 120, 20);
+        this.nombre.setFont(new Font("Tahoma", Font.BOLD, 12));
+
+        this.valor = new JTextField();
+        this.valor.setBounds(160, 360, 120, 20);
+        this.valor.setFont(new Font("Tahoma", Font.BOLD, 12));
 
         this.panel0 = new JTextArea();
         this.panel0.setBounds(20, 50, 260, 300);
@@ -30,7 +67,14 @@ public class WindowTwo extends JFrame implements ActionListener, ChangeListener 
         this.panel0.setForeground(Color.WHITE);
 
         this.setResizable(false);
+
+        this.add(envio);
+        this.add(salir);
+        this.add(nombre);
+        this.add(valor);
         this.add(panel0);
+        this.add(txtNombre);
+        this.add(txtValor);
         this.add(panel);
         this.setResizable(false);
         this.setSize(330, 530);
@@ -40,7 +84,14 @@ public class WindowTwo extends JFrame implements ActionListener, ChangeListener 
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        if (e.getSource() == this.salir) {
+            this.dispose();
+        }
+        if (e.getSource() == this.envio) {
+            Window window = new Window();
+            window.setVisible(true);
+            this.dispose();
+        }
     }
 
     @Override
