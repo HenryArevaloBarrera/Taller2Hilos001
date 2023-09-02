@@ -1,15 +1,14 @@
 package Presentacion;
 
 import Presentacion.GUI.Window;
+import Presentacion.GUI.WindowTwo;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
-        System.out.println("args = " + args);
-        System.out.println("args = " + args);
-        System.out.println("args = " + args);
-        System.out.println(" = " );
+
         Window window = new Window();
         window.setVisible(true);
+        WindowTwo windowTwo = new WindowTwo();
+        windowTwo.setVisible(true);
     }
 }
