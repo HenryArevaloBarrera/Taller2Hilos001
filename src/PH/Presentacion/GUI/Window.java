@@ -1,6 +1,7 @@
 package PH.Presentacion.GUI;
 
 
+import PH.Logica.Control.ControlMaquina;
 import PH.Logica.Control.HilosJuego;
 
 import javax.swing.*;
@@ -11,9 +12,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
 
-public class Window extends JFrame implements ActionListener, ChangeListener {
+public class Window extends JFrame implements ActionListener {
     private final JLabel panel0;
     private final JLabel valor;
+    private final JLabel usuario;
     private final JLabel panel1;
     private final JLabel panel2;
     private final JLabel panel3;
@@ -45,6 +47,13 @@ public class Window extends JFrame implements ActionListener, ChangeListener {
         this.valor.setFont(font1);
         this.valor.setForeground(Color.WHITE);
 
+        this.usuario = new JLabel("" + nombreParticipante);
+        this.usuario.setBounds(190, 10, 80, 50);
+        this.usuario.setBackground(new Color(200, 200, 200));
+        this.usuario.setBorder(null);
+        this.usuario.setFont(font1);
+        this.usuario.setForeground(Color.WHITE);
+
         this.panel0 = new JLabel();
         this.panel0.setBounds(10, 10, 80, 50);
         this.panel0.setBackground(new Color(200, 200, 200));
@@ -68,7 +77,7 @@ public class Window extends JFrame implements ActionListener, ChangeListener {
         this.panel2.setForeground(Color.WHITE);
 
 
-        this.panel3 = new JLabel("10");
+        this.panel3 = new JLabel("3");
         this.panel3.setBounds(310, 80, 100, 100);
         this.panel3.setBackground(new Color(200, 200, 200));
         this.panel3.setBorder(null);
@@ -105,6 +114,7 @@ public class Window extends JFrame implements ActionListener, ChangeListener {
 
         JLabel panel = new JLabel();
         this.add(this.valor);
+        this.add(this.usuario);
         this.add(this.panel0);
         this.add(this.panel1);
         this.add(this.panel2);
@@ -124,6 +134,8 @@ public class Window extends JFrame implements ActionListener, ChangeListener {
         this.setVisible(true);
 
 
+
+
     }
 
     public static void main(String[] args) {
@@ -133,7 +145,10 @@ public class Window extends JFrame implements ActionListener, ChangeListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == this.return1) {
+        Object componente=e.getSource();
+        ControlMaquina cm=new ControlMaquina();
+        int conteo=0;
+        if (componente.equals(return1)) {
             return1.setIcon(nuestroIcono2);
             Timer timer = new Timer(500, new ActionListener() {
                 public void actionPerformed(ActionEvent evt) {
@@ -155,22 +170,38 @@ public class Window extends JFrame implements ActionListener, ChangeListener {
             campo2.start();
             campo3.start();
 
-
-        }
-        if (e.getSource() == this.boton) {
+        } else if (componente.equals(boton)) {
             runOne.stopThread();
-        }
-        if (e.getSource() == this.boton1) {
+        }else if(componente.equals(boton1)){
             runTwo.stopThread();
-        }
-        if (e.getSource() == this.boton2) {
+        }else if(componente.equals(boton2)){
             runTree.stopThread();
+
         }
+        if(campo1.getState().equals(Thread.State.TERMINATED)&&
+                campo2.getState().equals(Thread.State.TERMINATED)&&
+                campo3.getState().equals(Thread.State.TERMINATED))  {
+            System.out.println("termine hilo");
+            if(panel1.getText()==panel2.getText() && panel2.getText()==panel3.getText()){
+                valor.setText(String.valueOf(cm.gananciaTriple(Integer.parseInt(valor.getText()))));
+            } else if (panel1.getText() == panel2.getText() ||
+                    panel2.getText() == panel3.getText() ||
+                    panel1.getText() == panel3.getText()) {
+                valor.setText(String.valueOf(cm.gananciaDoble(Integer.parseInt(valor.getText()))));
 
-    }
+            }else{
+                valor.setText(String.valueOf(cm.perdida(Integer.parseInt(valor.getText()))));
 
-    @Override
-    public void stateChanged(ChangeEvent e) {
+            }
+            conteo +=1;
+            if(conteo==3){
+                cm.registro(usuario.getText(), valor.getText() );
+                cm.dineroMaquina(valor.getText());
+            } else if (cm.finalJuego(Integer.parseInt(valor.getText()))==true) {
+                cm.registro(usuario.getText(), valor.getText());
+                cm.dineroMaquina(valor.getText());
+            }
+        }
 
     }
 

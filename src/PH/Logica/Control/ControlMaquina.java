@@ -27,9 +27,23 @@ public void dineroMaquina(String valorFinal){
     }else{
         m=new Maquina();
         m.setId("M1");
-        m.setDineroMaquina(Integer.parseInt(valorFinal));
+        m.setDineroMaquina(Integer.parseInt(valorFinal)+ m.getDineroMaquina());
         new DAOMaquina().IngresarMonto(m);
     }
+}
+public int gananciaTriple(int valor){
+    return valor*2;
+}
+public int gananciaDoble(int valor){
+    int valor2= (int) (valor*1.2);
+    return valor2;
+}
+public int perdida(int valor){
+    return valor/2;
+}
+public boolean finalJuego(int valor){
+    boolean estado= valor/2 <=100 ? true:false;
+    return estado;
 }
 
 

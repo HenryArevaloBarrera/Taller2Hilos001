@@ -28,8 +28,11 @@ public class HilosJuego implements Runnable {
                 if (x == 9) {
                     x = 0;
                 }
-                tiempo += 20;
-
+                if(tiempo <2000){
+                    tiempo += 200;
+                }else{
+                   stopThread();
+                }
             }
         } else {
             int tiempo = 0;
@@ -43,8 +46,15 @@ public class HilosJuego implements Runnable {
                 if (x == 9) {
                     x = 0;
                 }
-                tiempo += 20;
+                if(tiempo <2000){
+                    tiempo += 200;
+                }else{
+                    stopThread();
+                }
+
+
             }
+
         }
     }
 
