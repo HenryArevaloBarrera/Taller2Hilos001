@@ -41,14 +41,14 @@ public class Window extends JFrame implements ActionListener {
         Font font1 = new Font("Arial", Font.PLAIN, 20);
 
         this.valor = new JLabel("" + valorApuesta);
-        this.valor.setBounds(90, 10, 80, 50);
+        this.valor.setBounds(90, 10, 100, 50);
         this.valor.setBackground(new Color(200, 200, 200));
         this.valor.setBorder(null);
         this.valor.setFont(font1);
         this.valor.setForeground(Color.WHITE);
 
-        this.usuario = new JLabel("" + nombreParticipante);
-        this.usuario.setBounds(190, 10, 80, 50);
+        this.usuario = new JLabel("Usuario: " + nombreParticipante);
+        this.usuario.setBounds(190, 10, 150, 50);
         this.usuario.setBackground(new Color(200, 200, 200));
         this.usuario.setBorder(null);
         this.usuario.setFont(font1);
