@@ -1,6 +1,8 @@
 package PH.Presentacion.GUI;
 
 
+import PH.Logica.Control.HilosJuego;
+
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -83,6 +85,8 @@ public class WindowTwo extends JFrame implements ActionListener, ChangeListener 
         this.setSize(330, 530);
         this.setTitle("Juego Con Hilos");
         this.setVisible(true);
+
+
     }
 
     @Override

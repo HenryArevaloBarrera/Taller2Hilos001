@@ -1,6 +1,8 @@
 package PH.Presentacion.GUI;
 
 
+import PH.Logica.Control.HilosJuego;
+
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -20,17 +22,21 @@ public class Window extends JFrame implements ActionListener, ChangeListener {
     private final JButton boton2;
     private final JButton return1;
 
+    private Thread campo1;
+    private Thread campo2;
+    private Thread campo3;
+
 
     ImageIcon nuestroIcono = new ImageIcon("src/PH/Presentacion/Recursos/fondo1.jpg");
     ImageIcon nuestroIcono2 = new ImageIcon("src/PH/Presentacion/Recursos/imagen2.png");
     ImageIcon nuestroIcono3 = new ImageIcon("src/PH/Presentacion/Recursos/imagen1.png");
     ImageIcon nuestroIcono4 = new ImageIcon("src/PH/Presentacion/Recursos/imagen3.png");
 
-    public Window(String valorApuesta,String nombreParticipante) {
+    public Window(String valorApuesta, String nombreParticipante) {
         Font font = new Font("Arial", Font.PLAIN, 100);
         Font font1 = new Font("Arial", Font.PLAIN, 20);
 
-        this.valor = new JLabel(""+valorApuesta);
+        this.valor = new JLabel("" + valorApuesta);
         this.valor.setBounds(90, 10, 80, 50);
         this.valor.setBackground(new Color(200, 200, 200));
         this.valor.setBorder(null);
@@ -115,10 +121,20 @@ public class Window extends JFrame implements ActionListener, ChangeListener {
         this.setTitle("Juego Con Hilos");
         this.setVisible(true);
 
+        HilosJuego runOne = new HilosJuego(panel1, true);
+
+        HilosJuego runTwo = new HilosJuego(panel2, true);
+
+        HilosJuego runTree = new HilosJuego(panel3, true);
+        campo1 = new Thread(runOne);
+        campo2 = new Thread(runTwo);
+        campo3 = new Thread(runTree);
+
+
     }
 
     public static void main(String[] args) {
-        new Window("","");
+        new Window("", "");
     }
 
 
@@ -133,6 +149,12 @@ public class Window extends JFrame implements ActionListener, ChangeListener {
             });
             timer.setRepeats(false);
             timer.start();
+
+            campo1.start();
+            campo2.start();
+            campo3.start();
+
+
 
         }
         if (e.getSource() == this.boton1) {
