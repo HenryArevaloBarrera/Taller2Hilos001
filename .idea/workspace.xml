@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ffc3e2f-af51-4007-974a-63af54c2f712" name="Changes" comment="001">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_09_2023_18_09__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_09_2023_18_09__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_09_2023_19_15__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_09_2023_19_15__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_09_2023_19_15__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_09_2023_19_15__Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PH/Logica/Control/HilosJuego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PH/Logica/Control/HilosJuego.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PH/Presentacion/GUI/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PH/Presentacion/GUI/Window.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PH/Presentacion/GUI/WindowTwo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PH/Presentacion/GUI/WindowTwo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +134,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693668482742</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="001">
+      <option name="closed" value="true" />
+      <created>1693758231832</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1693758231832</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

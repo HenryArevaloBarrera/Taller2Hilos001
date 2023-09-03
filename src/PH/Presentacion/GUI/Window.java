@@ -21,7 +21,9 @@ public class Window extends JFrame implements ActionListener, ChangeListener {
     private final JButton boton1;
     private final JButton boton2;
     private final JButton return1;
-
+    HilosJuego runOne;
+    HilosJuego runTwo;
+    HilosJuego runTree;
     private Thread campo1;
     private Thread campo2;
     private Thread campo3;
@@ -66,7 +68,7 @@ public class Window extends JFrame implements ActionListener, ChangeListener {
         this.panel2.setForeground(Color.WHITE);
 
 
-        this.panel3 = new JLabel("3");
+        this.panel3 = new JLabel("10");
         this.panel3.setBounds(310, 80, 100, 100);
         this.panel3.setBackground(new Color(200, 200, 200));
         this.panel3.setBorder(null);
@@ -121,15 +123,6 @@ public class Window extends JFrame implements ActionListener, ChangeListener {
         this.setTitle("Juego Con Hilos");
         this.setVisible(true);
 
-        HilosJuego runOne = new HilosJuego(panel1, true);
-
-        HilosJuego runTwo = new HilosJuego(panel2, true);
-
-        HilosJuego runTree = new HilosJuego(panel3, true);
-        campo1 = new Thread(runOne);
-        campo2 = new Thread(runTwo);
-        campo3 = new Thread(runTree);
-
 
     }
 
@@ -149,19 +142,29 @@ public class Window extends JFrame implements ActionListener, ChangeListener {
             });
             timer.setRepeats(false);
             timer.start();
+            runOne = new HilosJuego(panel1, true);
+
+            runTwo = new HilosJuego(panel2, true);
+
+            runTree = new HilosJuego(panel3, true);
+            campo1 = new Thread(runOne);
+            campo2 = new Thread(runTwo);
+            campo3 = new Thread(runTree);
 
             campo1.start();
             campo2.start();
             campo3.start();
 
 
-
+        }
+        if (e.getSource() == this.boton) {
+            runOne.stopThread();
         }
         if (e.getSource() == this.boton1) {
-
+            runTwo.stopThread();
         }
         if (e.getSource() == this.boton2) {
-
+            runTree.stopThread();
         }
 
     }

@@ -17,33 +17,33 @@ public class HilosJuego implements Runnable {
     @Override
     public void run() {
         if (sw) {
-            int tiempo=0;
-            for(int x = 0; x <= 5 && state ; x++ ){
-                text.setText( ""+ x );
+            int tiempo = 0;
+            for (int x = 0; x <= 9 && state; x++) {
+                text.setText("" + x);
                 try {
                     Thread.sleep(tiempo);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
-                if (x==5){
-                    x=0;
+                if (x == 9) {
+                    x = 0;
                 }
-                tiempo+=20;
+                tiempo += 20;
 
             }
         } else {
-            int tiempo=0;
-            for (int x = 0; x >=5 && state; x--) {
+            int tiempo = 0;
+            for (int x = 0; x >= 9 && state; x--) {
                 text.setText("" + x);
                 try {
                     Thread.sleep(new Random().nextInt(200) + 1);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
-                if (x==5){
-                    x=0;
+                if (x == 9) {
+                    x = 0;
                 }
-                tiempo+=20;
+                tiempo += 20;
             }
         }
     }
