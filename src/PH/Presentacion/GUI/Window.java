@@ -1,4 +1,4 @@
-package Presentacion.GUI;
+package PH.Presentacion.GUI;
 
 
 import javax.swing.*;
@@ -21,12 +21,12 @@ public class Window extends JFrame implements ActionListener, ChangeListener {
     private final JButton return1;
 
 
-    ImageIcon nuestroIcono = new ImageIcon("src/Presentacion/Recursos/fondo1.jpg");
-    ImageIcon nuestroIcono2 = new ImageIcon("src/Presentacion/Recursos/imagen2.png");
-    ImageIcon nuestroIcono3 = new ImageIcon("src/Presentacion/Recursos/imagen1.png");
-    ImageIcon nuestroIcono4 = new ImageIcon("src/Presentacion/Recursos/imagen3.png");
+    ImageIcon nuestroIcono = new ImageIcon("src/PH/Presentacion/Recursos/fondo1.jpg");
+    ImageIcon nuestroIcono2 = new ImageIcon("src/PH/Presentacion/Recursos/imagen2.png");
+    ImageIcon nuestroIcono3 = new ImageIcon("src/PH/Presentacion/Recursos/imagen1.png");
+    ImageIcon nuestroIcono4 = new ImageIcon("src/PH/Presentacion/Recursos/imagen3.png");
 
-    public Window(String valorApuesta) {
+    public Window(String valorApuesta,String nombreParticipante) {
         Font font = new Font("Arial", Font.PLAIN, 100);
         Font font1 = new Font("Arial", Font.PLAIN, 20);
 
@@ -118,7 +118,7 @@ public class Window extends JFrame implements ActionListener, ChangeListener {
     }
 
     public static void main(String[] args) {
-        new Window("");
+        new Window("","");
     }
 
 

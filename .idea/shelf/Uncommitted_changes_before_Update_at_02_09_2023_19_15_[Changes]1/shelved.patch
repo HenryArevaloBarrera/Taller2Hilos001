@@ -1,0 +1,60 @@
+Index: src/Presentacion/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Presentacion/Main.java b/src/PH/Presentacion/Main.java
+rename from src/Presentacion/Main.java
+rename to src/PH/Presentacion/Main.java
+--- a/src/Presentacion/Main.java	
++++ b/src/PH/Presentacion/Main.java	
+@@ -1,6 +1,6 @@
+-package Presentacion;
++package PH.Presentacion;
+ 
+-import Presentacion.GUI.Window;
++import PH.Presentacion.GUI.Window;
+ 
+ public class Main {
+     public static void main(String[] args) {
+Index: src/Presentacion/GUI/Window.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Presentacion/GUI/Window.java b/src/PH/Presentacion/GUI/Window.java
+rename from src/Presentacion/GUI/Window.java
+rename to src/PH/Presentacion/GUI/Window.java
+--- a/src/Presentacion/GUI/Window.java	
++++ b/src/PH/Presentacion/GUI/Window.java	
+@@ -1,4 +1,4 @@
+-package Presentacion.GUI;
++package PH.Presentacion.GUI;
+ 
+ 
+ import javax.swing.*;
+@@ -20,10 +20,10 @@
+     private final JButton return1;
+ 
+ 
+-    ImageIcon nuestroIcono = new ImageIcon("src/Presentacion/Recursos/fondo1.jpg");
+-    ImageIcon nuestroIcono2 = new ImageIcon("src/Presentacion/Recursos/imagen2.png");
+-    ImageIcon nuestroIcono3 = new ImageIcon("src/Presentacion/Recursos/imagen1.png");
+-    ImageIcon nuestroIcono4 = new ImageIcon("src/Presentacion/Recursos/imagen3.png");
++    ImageIcon nuestroIcono = new ImageIcon("src/PH/Presentacion/Recursos/fondo1.jpg");
++    ImageIcon nuestroIcono2 = new ImageIcon("src/PH/Presentacion/Recursos/imagen2.png");
++    ImageIcon nuestroIcono3 = new ImageIcon("src/PH/Presentacion/Recursos/imagen1.png");
++    ImageIcon nuestroIcono4 = new ImageIcon("src/PH/Presentacion/Recursos/imagen3.png");
+ 
+     public Window() {
+         Font font = new Font("Arial", Font.PLAIN, 100);
+@@ -105,9 +105,6 @@
+ 
+     }
+ 
+-    public static void main(String[] args) {
+-        new Window();
+-    }
+ 
+ 
+     @Override

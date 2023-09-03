@@ -1,0 +1,24 @@
+<changelist name="Uncommitted_changes_before_Update_at_02_09_2023_19_15_[Changes]1" date="1693700160605" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_09_2023_19_15_[Changes]1/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 02/09/2023 19:15 [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="src/Presentacion/Recursos/fondo1.jpg" />
+    <option name="AFTER_PATH" value="src/PH/Presentacion/Recursos/fondo1.jpg" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_09_2023_19_15_[Changes]1/fondo1.jpg" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="src/Presentacion/Recursos/Imagen3.png" />
+    <option name="AFTER_PATH" value="src/PH/Presentacion/Recursos/Imagen3.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_09_2023_19_15_[Changes]1/Imagen3.png" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="src/Presentacion/Recursos/Imagen2.png" />
+    <option name="AFTER_PATH" value="src/PH/Presentacion/Recursos/Imagen2.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_09_2023_19_15_[Changes]1/Imagen2.png" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="src/Presentacion/Recursos/Imagen1.png" />
+    <option name="AFTER_PATH" value="src/PH/Presentacion/Recursos/Imagen1.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_09_2023_19_15_[Changes]1/Imagen1.png" />
+  </binary>
+</changelist>

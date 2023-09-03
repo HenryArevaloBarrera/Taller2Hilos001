@@ -1,4 +1,4 @@
-package Presentacion.GUI;
+package PH.Presentacion.GUI;
 
 
 import javax.swing.*;
@@ -18,7 +18,7 @@ public class WindowTwo extends JFrame implements ActionListener, ChangeListener 
     private final JButton salir;
 
     public WindowTwo() {
-        ImageIcon nuestroIcono = new ImageIcon("src/Presentacion/Recursos/fondo1.jpg");
+        ImageIcon nuestroIcono = new ImageIcon("src/PH/Presentacion/Recursos/fondo1.jpg");
         JLabel panel = new JLabel();
         panel.setIcon(nuestroIcono);
 
@@ -58,7 +58,8 @@ public class WindowTwo extends JFrame implements ActionListener, ChangeListener 
         this.panel0.setBounds(20, 50, 260, 300);
         this.panel0.setBackground(new Color(200, 200, 200));
         this.panel0.setBorder(null);
-        this.panel0.setText("        REGLAS\n\nEl jugador debe ingresar un valor inicial para comenzar a jugar.\n\n" +
+        this.panel0.setText("              REGLAS               \n\n" +
+                "El jugador debe ingresar un valor inicial para comenzar a jugar.\n\n" +
                 "Si el jugador acierta las 3 ruletas, su valor se multiplicará.\n\n" +
                 "Si el jugador acierta 2 ruletas, su valor se multiplicará por 1.2.\n\n" +
                 "Si el jugador no acierta ninguna de las ruletas, el valor que ingresó se reducirá a la mitad. \n\n" +
@@ -91,17 +92,17 @@ public class WindowTwo extends JFrame implements ActionListener, ChangeListener 
         }
         if (e.getSource() == this.envio) {
             if (this.nombre.getText().equals("")) {
-                System.out.println(" AGREGAR noMBRE pRIMERO");
+                JOptionPane.showMessageDialog(null," Agregar nombre primero");
             } else {
                 if (this.valor.getText().equals("")) {
-                    System.out.println(" aFREGAR vALOR dE LA aPUEStA pRIMERO");
+                    JOptionPane.showMessageDialog(null," Agregar valor de la apuesta primero");
                 } else {
                     if (valor.getText().matches("\\d+")) {
-                        Window window = new Window(valor.getText());
+                        Window window=new Window(valor.getText(),nombre.getText());
                         window.setVisible(true);
                         this.dispose();
                     } else {
-                        System.out.println(" valor no es numero");
+                        JOptionPane.showMessageDialog(null," Valor de la apuesta no es numerico");
                     }
                 }
             }
