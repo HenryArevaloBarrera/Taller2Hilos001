@@ -5,6 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ffc3e2f-af51-4007-974a-63af54c2f712" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Recursos/dineroMaquina.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Recursos/dineroMaquina.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Recursos/historialJuego.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Recursos/historialJuego.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PH/Logica/Control/ControlMaquina.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PH/Logica/Control/ControlMaquina.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PH/Persistencia/Utilidades/Archivo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PH/Persistencia/Utilidades/Archivo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PH/Presentacion/GUI/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PH/Presentacion/GUI/Window.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -164,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1693784993550</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="003">
+      <created>1693785257504</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1693785257504</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

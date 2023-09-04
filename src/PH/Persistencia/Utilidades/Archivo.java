@@ -11,8 +11,8 @@ import java.util.ArrayList;
 public class Archivo {
 
 	public boolean SobreEscribirArchivo(String rutaArchivo, String texto) {
-		
-		File archivo = new File(rutaArchivo);
+		String ruta = "Recursos/" + rutaArchivo;
+		File archivo = new File(ruta);
 		boolean existe = false;
 		BufferedWriter bw;
 
@@ -20,7 +20,7 @@ public class Archivo {
 			if (archivo.exists()) {
 
 				bw = new BufferedWriter(new FileWriter(archivo));
-				bw.write(texto + ";\n");
+				bw.write(texto + "\n");
 				existe = true;
 			} else {
 				bw = new BufferedWriter(new FileWriter(archivo));

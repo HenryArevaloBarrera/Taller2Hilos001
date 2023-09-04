@@ -18,8 +18,9 @@ public void registro(String nombre,String valorFinal){
    new DAOHistorialJuego().crearRegistro(listaHistorial);
 }
 public void dineroMaquina(String valorFinal){
+    DAOMaquina dm=new DAOMaquina();
     Maquina m;
-    if(new DAOMaquina().obtenerMonto()==null){
+    if(dm.obtenerMonto()==null){
         m=new Maquina();
         m.setId("M1");
         m.setDineroMaquina(100000);
@@ -27,8 +28,8 @@ public void dineroMaquina(String valorFinal){
     }else{
         m=new Maquina();
         m.setId("M1");
-        m.setDineroMaquina(Integer.parseInt(valorFinal)+ m.getDineroMaquina());
-        new DAOMaquina().IngresarMonto(m);
+        m.setDineroMaquina(Integer.parseInt(valorFinal)+ dm.obtenerMonto().getDineroMaquina());
+       dm.IngresarMonto(m);
     }
 }
 public int gananciaTriple(int valor){

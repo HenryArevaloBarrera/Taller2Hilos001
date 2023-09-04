@@ -182,11 +182,11 @@ public class Window extends JFrame implements ActionListener {
                 campo2.getState().equals(Thread.State.TERMINATED)&&
                 campo3.getState().equals(Thread.State.TERMINATED))  {
             System.out.println("termine hilo");
-            if(panel1.getText()==panel2.getText() && panel2.getText()==panel3.getText()){
+            if(panel1.getText().equals(panel2.getText()) && panel2.getText().equals(panel3.getText())){
                 valor.setText(String.valueOf(cm.gananciaTriple(Integer.parseInt(valor.getText()))));
-            } else if (panel1.getText() == panel2.getText() ||
-                    panel2.getText() == panel3.getText() ||
-                    panel1.getText() == panel3.getText()) {
+            } else if (panel1.getText().equals(panel2.getText()) ||
+                    panel2.getText().equals(panel3.getText()) ||
+                    panel1.getText().equals(panel3.getText())) {
                 valor.setText(String.valueOf(cm.gananciaDoble(Integer.parseInt(valor.getText()))));
 
             }else{
