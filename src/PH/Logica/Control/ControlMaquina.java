@@ -8,7 +8,13 @@ import PH.Persistencia.DAOMaquina;
 import java.util.ArrayList;
 
 public class ControlMaquina {
-public void registro(String nombre,String valorFinal){
+    private int numero;
+
+    public ControlMaquina() {
+        this.numero=3;
+    }
+
+    public void registro(String nombre, String valorFinal){
     ArrayList<Historial> listaHistorial = new ArrayList<>();
     Historial his;
    his= new Historial();
@@ -46,9 +52,20 @@ public boolean finalJuego(int valor){
     boolean estado= valor/2 <=100 ? true:false;
     return estado;
 }
+public int conteo(int num){
+    System.out.println("pasado"+num);
+    num --;
+    setNumero(num);
+    System.out.println("Generado"+getNumero());
+    return num;
+}
 
+    public int getNumero() {
+        return numero;
+    }
 
-
-
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
 }
 

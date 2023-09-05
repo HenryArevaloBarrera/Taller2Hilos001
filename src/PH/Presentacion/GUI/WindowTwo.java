@@ -57,14 +57,15 @@ public class WindowTwo extends JFrame implements ActionListener, ChangeListener 
         this.valor.setFont(new Font("Tahoma", Font.BOLD, 12));
 
         this.panel0 = new JTextArea();
-        this.panel0.setBounds(20, 50, 260, 300);
+        this.panel0.setBounds(20, 20, 260, 300);
         this.panel0.setBackground(new Color(200, 200, 200));
         this.panel0.setBorder(null);
-        this.panel0.setText("              REGLAS               \n\n" +
+        this.panel0.setText("                           REGLAS               \n\n" +
                 "El jugador debe ingresar un valor inicial para comenzar a jugar.\n\n" +
                 "Si el jugador acierta las 3 ruletas, su valor se multiplicará.\n\n" +
                 "Si el jugador acierta 2 ruletas, su valor se multiplicará por 1.2.\n\n" +
                 "Si el jugador no acierta ninguna de las ruletas, el valor que ingresó se reducirá a la mitad. \n\n" +
+                "Para obtener las ganancias es necesario que registre el juego \n\n"+
                 "Cada juego consta de 3 rondas para poder ganar.");
         this.panel0.setLineWrap(true);
         this.panel0.setFont(new Font("Tahoma", Font.BOLD, 12));

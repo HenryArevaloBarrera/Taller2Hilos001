@@ -23,6 +23,7 @@ public class Window extends JFrame implements ActionListener {
     private final JButton boton1;
     private final JButton boton2;
     private final JButton return1;
+    private final JButton registro;
     HilosJuego runOne;
     HilosJuego runTwo;
     HilosJuego runTree;
@@ -37,6 +38,7 @@ public class Window extends JFrame implements ActionListener {
     ImageIcon nuestroIcono4 = new ImageIcon("src/PH/Presentacion/Recursos/imagen3.png");
 
     public Window(String valorApuesta, String nombreParticipante) {
+
         Font font = new Font("Arial", Font.PLAIN, 100);
         Font font1 = new Font("Arial", Font.PLAIN, 20);
 
@@ -103,6 +105,11 @@ public class Window extends JFrame implements ActionListener {
         this.boton2.setBackground(new Color(230, 230, 230));
         this.boton2.addActionListener(this);
 
+        this.registro = new JButton("Registrar");
+        this.registro.setBounds(350, 20, 130, 20);
+        this.registro.setFont(font1);
+        this.registro.setBackground(new Color(230, 230, 230));
+        this.registro.addActionListener(this);
 
         this.return1 = new JButton();
         this.return1.setBounds(450, 50, 50, 200);
@@ -122,6 +129,7 @@ public class Window extends JFrame implements ActionListener {
         this.add(this.boton);
         this.add(this.boton1);
         this.add(this.boton2);
+        this.add(this.registro);
         this.add(this.return1);
         panel.setIcon(nuestroIcono);
 
@@ -134,8 +142,6 @@ public class Window extends JFrame implements ActionListener {
         this.setVisible(true);
 
 
-
-
     }
 
     public static void main(String[] args) {
@@ -145,64 +151,66 @@ public class Window extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        Object componente=e.getSource();
-        ControlMaquina cm=new ControlMaquina();
-        int conteo=0;
+        Object componente = e.getSource();
+        ControlMaquina cm = new ControlMaquina();
         if (componente.equals(return1)) {
-            return1.setIcon(nuestroIcono2);
-            Timer timer = new Timer(500, new ActionListener() {
-                public void actionPerformed(ActionEvent evt) {
-                    return1.setIcon(nuestroIcono3);
+                if(cm.conteo(cm.getNumero())>=0) {
+                    return1.setIcon(nuestroIcono2);
+                    Timer timer = new Timer(500, new ActionListener() {
+                        public void actionPerformed(ActionEvent evt) {
+                            return1.setIcon(nuestroIcono3);
+                        }
+                    });
+                    timer.setRepeats(false);
+                    timer.start();
+                    runOne = new HilosJuego(panel1, true);
+
+                    runTwo = new HilosJuego(panel2, true);
+
+                    runTree = new HilosJuego(panel3, true);
+                    campo1 = new Thread(runOne);
+                    campo2 = new Thread(runTwo);
+                    campo3 = new Thread(runTree);
+
+                    campo1.start();
+                    campo2.start();
+                    campo3.start();
+                }else{
+                    JOptionPane.showMessageDialog(null, "Rondas Finalizadas");
                 }
-            });
-            timer.setRepeats(false);
-            timer.start();
-            runOne = new HilosJuego(panel1, true);
-
-            runTwo = new HilosJuego(panel2, true);
-
-            runTree = new HilosJuego(panel3, true);
-            campo1 = new Thread(runOne);
-            campo2 = new Thread(runTwo);
-            campo3 = new Thread(runTree);
-
-            campo1.start();
-            campo2.start();
-            campo3.start();
 
         } else if (componente.equals(boton)) {
             runOne.stopThread();
-        }else if(componente.equals(boton1)){
+        } else if (componente.equals(boton1)) {
             runTwo.stopThread();
-        }else if(componente.equals(boton2)){
+        } else if (componente.equals(boton2)) {
             runTree.stopThread();
 
+        } else if (componente.equals(registro)) {
+            cm.registro(usuario.getText(), valor.getText());
+            cm.dineroMaquina(valor.getText());
         }
-        if(campo1.getState().equals(Thread.State.TERMINATED)&&
-                campo2.getState().equals(Thread.State.TERMINATED)&&
-                campo3.getState().equals(Thread.State.TERMINATED))  {
-            System.out.println("termine hilo");
-            if(panel1.getText().equals(panel2.getText()) && panel2.getText().equals(panel3.getText())){
+        if (campo1.getState().equals(Thread.State.TERMINATED) &&
+                campo2.getState().equals(Thread.State.TERMINATED) &&
+                campo3.getState().equals(Thread.State.TERMINATED)) {
+            if (panel1.getText().equals(panel2.getText()) && panel2.getText().equals(panel3.getText())) {
                 valor.setText(String.valueOf(cm.gananciaTriple(Integer.parseInt(valor.getText()))));
             } else if (panel1.getText().equals(panel2.getText()) ||
                     panel2.getText().equals(panel3.getText()) ||
                     panel1.getText().equals(panel3.getText())) {
                 valor.setText(String.valueOf(cm.gananciaDoble(Integer.parseInt(valor.getText()))));
 
-            }else{
+            } else {
                 valor.setText(String.valueOf(cm.perdida(Integer.parseInt(valor.getText()))));
 
             }
-            conteo +=1;
-            if(conteo==3){
-                cm.registro(usuario.getText(), valor.getText() );
-                cm.dineroMaquina(valor.getText());
-            } else if (cm.finalJuego(Integer.parseInt(valor.getText()))==true) {
+
+            if (cm.finalJuego(Integer.parseInt(valor.getText())) == true) {
                 cm.registro(usuario.getText(), valor.getText());
                 cm.dineroMaquina(valor.getText());
             }
+
         }
 
     }
-
 }

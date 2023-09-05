@@ -9,8 +9,9 @@
       <change beforePath="$PROJECT_DIR$/Recursos/dineroMaquina.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Recursos/dineroMaquina.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Recursos/historialJuego.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Recursos/historialJuego.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PH/Logica/Control/ControlMaquina.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PH/Logica/Control/ControlMaquina.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PH/Persistencia/Utilidades/Archivo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PH/Persistencia/Utilidades/Archivo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PH/Logica/Control/HilosJuego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PH/Logica/Control/HilosJuego.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PH/Presentacion/GUI/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PH/Presentacion/GUI/Window.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PH/Presentacion/GUI/WindowTwo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PH/Presentacion/GUI/WindowTwo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +27,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2UgjcNS4HmlVdqgFCRCNghXoeOL" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -176,7 +180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1693785257504</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="003">
+      <created>1693786247321</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1693786247321</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
