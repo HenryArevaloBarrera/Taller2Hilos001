@@ -16,3 +16,5 @@ Si el jugador acierta las 3 ruletas, su valor se multiplicará por 3.
 Si el jugador acierta 2 ruletas, su valor se multiplicará por 2.
 Si el jugador no acierta ninguna de las ruletas, el valor que ingresó se reducirá a la mitad.
 Para obtener las ganancias es necesario que se RETIRE el juego. 
+
+Mockups: https://github.com/HenryArevaloBarrera/Taller2Hilos001/blob/master/src/PH/Idea%20Inicial.pdf
