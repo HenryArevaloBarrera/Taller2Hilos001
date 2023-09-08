@@ -1,0 +1,132 @@
+Index: src/PH/Logica/Control/HilosJuego.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package PH.Logica.Control;\r\n\r\nimport javax.swing.*;\r\nimport java.util.Random;\r\n\r\npublic class HilosJuego implements Runnable {\r\n    private JLabel text;\r\n    private boolean state;\r\n    private boolean sw;\r\n\r\n    public HilosJuego(JLabel text, boolean sw) {\r\n        this.text = text;\r\n        this.sw = sw;\r\n        state = true;\r\n    }\r\n\r\n    @Override\r\n    public void run() {\r\n        if (sw) {\r\n            int tiempo = 0;\r\n            for (int x = 0; x <= 9 && state; x++) {\r\n                text.setText(\"\" + x);\r\n                try {\r\n                    Thread.sleep(tiempo);\r\n                } catch (InterruptedException e) {\r\n                    throw new RuntimeException(e);\r\n                }\r\n                if (x == 9) {\r\n                    x = 0;\r\n                }\r\n                tiempo += 20;\r\n\r\n            }\r\n        } else {\r\n            int tiempo = 0;\r\n            for (int x = 0; x >= 9 && state; x--) {\r\n                text.setText(\"\" + x);\r\n                try {\r\n                    Thread.sleep(new Random().nextInt(200) + 1);\r\n                } catch (InterruptedException e) {\r\n                    throw new RuntimeException(e);\r\n                }\r\n                if (x == 9) {\r\n                    x = 0;\r\n                }\r\n                tiempo += 20;\r\n            }\r\n        }\r\n    }\r\n\r\n    public void stopThread() {\r\n        state = false;\r\n    }\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/PH/Logica/Control/HilosJuego.java b/src/PH/Logica/Control/HilosJuego.java
+--- a/src/PH/Logica/Control/HilosJuego.java	(revision cfc9149f7ab252b8a585a7578950a8fe72e5c7b3)
++++ b/src/PH/Logica/Control/HilosJuego.java	(date 1693777331866)
+@@ -18,7 +18,8 @@
+     public void run() {
+         if (sw) {
+             int tiempo = 0;
+-            for (int x = 0; x <= 9 && state; x++) {
++
++            for (int x =new Random().nextInt(8) ; x <= 9 && state; x++) {
+                 text.setText("" + x);
+                 try {
+                     Thread.sleep(tiempo);
+@@ -29,7 +30,10 @@
+                     x = 0;
+                 }
+                 tiempo += 20;
+-
++                if (tiempo>=1200){
++                    x=10;
++                }
++                System.out.println("tiempo = " + tiempo);
+             }
+         } else {
+             int tiempo = 0;
+Index: src/PH/Presentacion/GUI/Window.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package PH.Presentacion.GUI;\r\n\r\n\r\nimport PH.Logica.Control.HilosJuego;\r\n\r\nimport javax.swing.*;\r\nimport javax.swing.event.ChangeEvent;\r\nimport javax.swing.event.ChangeListener;\r\nimport java.awt.*;\r\nimport java.awt.event.ActionEvent;\r\nimport java.awt.event.ActionListener;\r\nimport java.net.URL;\r\n\r\npublic class Window extends JFrame implements ActionListener, ChangeListener {\r\n    private final JLabel panel0;\r\n    private final JLabel valor;\r\n    private final JLabel panel1;\r\n    private final JLabel panel2;\r\n    private final JLabel panel3;\r\n    private final JButton boton;\r\n    private final JButton boton1;\r\n    private final JButton boton2;\r\n    private final JButton return1;\r\n    HilosJuego runOne;\r\n    HilosJuego runTwo;\r\n    HilosJuego runTree;\r\n    private Thread campo1;\r\n    private Thread campo2;\r\n    private Thread campo3;\r\n\r\n\r\n    ImageIcon nuestroIcono = new ImageIcon(\"src/PH/Presentacion/Recursos/fondo1.jpg\");\r\n    ImageIcon nuestroIcono2 = new ImageIcon(\"src/PH/Presentacion/Recursos/imagen2.png\");\r\n    ImageIcon nuestroIcono3 = new ImageIcon(\"src/PH/Presentacion/Recursos/imagen1.png\");\r\n    ImageIcon nuestroIcono4 = new ImageIcon(\"src/PH/Presentacion/Recursos/imagen3.png\");\r\n\r\n    public Window(String valorApuesta, String nombreParticipante) {\r\n        Font font = new Font(\"Arial\", Font.PLAIN, 100);\r\n        Font font1 = new Font(\"Arial\", Font.PLAIN, 20);\r\n\r\n        this.valor = new JLabel(\"\" + valorApuesta);\r\n        this.valor.setBounds(90, 10, 80, 50);\r\n        this.valor.setBackground(new Color(200, 200, 200));\r\n        this.valor.setBorder(null);\r\n        this.valor.setFont(font1);\r\n        this.valor.setForeground(Color.WHITE);\r\n\r\n        this.panel0 = new JLabel();\r\n        this.panel0.setBounds(10, 10, 80, 50);\r\n        this.panel0.setBackground(new Color(200, 200, 200));\r\n        this.panel0.setBorder(null);\r\n        this.panel0.setFont(font);\r\n        this.panel0.setIcon(nuestroIcono4);\r\n\r\n\r\n        this.panel1 = new JLabel(\"1\");\r\n        this.panel1.setBounds(70, 80, 100, 100);\r\n        this.panel1.setBackground(new Color(200, 200, 200));\r\n        this.panel1.setBorder(null);\r\n        this.panel1.setFont(font);\r\n        this.panel1.setForeground(Color.WHITE);\r\n\r\n        this.panel2 = new JLabel(\"2\");\r\n        this.panel2.setBounds(190, 80, 100, 100);\r\n        this.panel2.setBackground(new Color(200, 200, 200));\r\n        this.panel2.setBorder(null);\r\n        this.panel2.setFont(font);\r\n        this.panel2.setForeground(Color.WHITE);\r\n\r\n\r\n        this.panel3 = new JLabel(\"10\");\r\n        this.panel3.setBounds(310, 80, 100, 100);\r\n        this.panel3.setBackground(new Color(200, 200, 200));\r\n        this.panel3.setBorder(null);\r\n        this.panel3.setFont(font);\r\n        this.panel3.setForeground(Color.WHITE);\r\n\r\n\r\n        this.boton = new JButton(\"STOP\");\r\n        this.boton.setBounds(70, 200, 100, 50);\r\n        this.boton.setFont(font1);\r\n        this.boton.setBackground(new Color(230, 230, 230));\r\n        this.boton.addActionListener(this);\r\n\r\n        this.boton1 = new JButton(\"STOP\");\r\n        this.boton1.setBounds(190, 200, 100, 50);\r\n        this.boton1.setFont(font1);\r\n        this.boton1.setBackground(new Color(230, 230, 230));\r\n        this.boton1.addActionListener(this);\r\n\r\n        this.boton2 = new JButton(\"STOP\");\r\n        this.boton2.setBounds(310, 200, 100, 50);\r\n        this.boton2.setFont(font1);\r\n        this.boton2.setBackground(new Color(230, 230, 230));\r\n        this.boton2.addActionListener(this);\r\n\r\n\r\n        this.return1 = new JButton();\r\n        this.return1.setBounds(450, 50, 50, 200);\r\n        this.return1.setFont(font1);\r\n        this.return1.setBackground(new Color(230, 230, 230));\r\n        this.return1.addActionListener(this);\r\n        return1.setIcon(nuestroIcono3);\r\n        return1.setBorderPainted(false);\r\n\r\n        JLabel panel = new JLabel();\r\n        this.add(this.valor);\r\n        this.add(this.panel0);\r\n        this.add(this.panel1);\r\n        this.add(this.panel2);\r\n        this.add(this.panel3);\r\n        this.add(this.boton);\r\n        this.add(this.boton1);\r\n        this.add(this.boton2);\r\n        this.add(this.return1);\r\n        panel.setIcon(nuestroIcono);\r\n\r\n\r\n        this.setResizable(false);\r\n        this.add(panel);\r\n\r\n        this.setSize(530, 330);\r\n        this.setTitle(\"Juego Con Hilos\");\r\n        this.setVisible(true);\r\n\r\n\r\n    }\r\n\r\n    public static void main(String[] args) {\r\n        new Window(\"\", \"\");\r\n    }\r\n\r\n\r\n    @Override\r\n    public void actionPerformed(ActionEvent e) {\r\n        if (e.getSource() == this.return1) {\r\n            return1.setIcon(nuestroIcono2);\r\n            Timer timer = new Timer(500, new ActionListener() {\r\n                public void actionPerformed(ActionEvent evt) {\r\n                    return1.setIcon(nuestroIcono3);\r\n                }\r\n            });\r\n            timer.setRepeats(false);\r\n            timer.start();\r\n            runOne = new HilosJuego(panel1, true);\r\n\r\n            runTwo = new HilosJuego(panel2, true);\r\n\r\n            runTree = new HilosJuego(panel3, true);\r\n            campo1 = new Thread(runOne);\r\n            campo2 = new Thread(runTwo);\r\n            campo3 = new Thread(runTree);\r\n\r\n            campo1.start();\r\n            campo2.start();\r\n            campo3.start();\r\n\r\n\r\n        }\r\n        if (e.getSource() == this.boton) {\r\n            runOne.stopThread();\r\n        }\r\n        if (e.getSource() == this.boton1) {\r\n            runTwo.stopThread();\r\n        }\r\n        if (e.getSource() == this.boton2) {\r\n            runTree.stopThread();\r\n        }\r\n\r\n    }\r\n\r\n    @Override\r\n    public void stateChanged(ChangeEvent e) {\r\n\r\n    }\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/PH/Presentacion/GUI/Window.java b/src/PH/Presentacion/GUI/Window.java
+--- a/src/PH/Presentacion/GUI/Window.java	(revision cfc9149f7ab252b8a585a7578950a8fe72e5c7b3)
++++ b/src/PH/Presentacion/GUI/Window.java	(date 1693774081444)
+@@ -33,6 +33,9 @@
+     ImageIcon nuestroIcono2 = new ImageIcon("src/PH/Presentacion/Recursos/imagen2.png");
+     ImageIcon nuestroIcono3 = new ImageIcon("src/PH/Presentacion/Recursos/imagen1.png");
+     ImageIcon nuestroIcono4 = new ImageIcon("src/PH/Presentacion/Recursos/imagen3.png");
++    private boolean continuar;
++    private boolean continuar2;
++    private boolean continuar3;
+ 
+     public Window(String valorApuesta, String nombreParticipante) {
+         Font font = new Font("Arial", Font.PLAIN, 100);
+@@ -68,7 +71,7 @@
+         this.panel2.setForeground(Color.WHITE);
+ 
+ 
+-        this.panel3 = new JLabel("10");
++        this.panel3 = new JLabel("3");
+         this.panel3.setBounds(310, 80, 100, 100);
+         this.panel3.setBackground(new Color(200, 200, 200));
+         this.panel3.setBorder(null);
+@@ -154,19 +157,35 @@
+             campo1.start();
+             campo2.start();
+             campo3.start();
++            continuar = false;
++            continuar2 = false;
++            continuar3 = false;
+ 
+ 
+         }
+         if (e.getSource() == this.boton) {
+             runOne.stopThread();
++            continuar = true;
+         }
+         if (e.getSource() == this.boton1) {
+             runTwo.stopThread();
++            continuar2 = true;
+         }
+         if (e.getSource() == this.boton2) {
+             runTree.stopThread();
++            continuar3 = true;
+         }
++        if (continuar == true & continuar2 == true & continuar3 == true) {
++            int numero1 = 0;
++            int numero2 = 0;
++            int numero3 = 0;
++
++            numero1 = Integer.parseInt(panel1.getText());
++            numero2 = Integer.parseInt(panel2.getText());
++            numero3 = Integer.parseInt(panel3.getText());
+ 
++            System.out.println(numero1 + numero2 + numero3);
++        }
+     }
+ 
+     @Override
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"0ffc3e2f-af51-4007-974a-63af54c2f712\" name=\"Changes\" comment=\"001\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/PH/Presentacion/GUI/Window.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/PH/Presentacion/GUI/Window.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2UgjcNS4HmlVdqgFCRCNghXoeOL\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\hhab1\\IdeaProjects\\Taller2Hilos001\\src\\Presentacion\\GUI\\Recursos\" />\r\n      <recent name=\"C:\\Users\\hhab1\\IdeaProjects\\Taller2Hilos001\\src\\Presentacion\\GUI\" />\r\n      <recent name=\"C:\\Users\\hhab1\\IdeaProjects\\Taller2Hilos001\\src\\Recursos\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"0ffc3e2f-af51-4007-974a-63af54c2f712\" name=\"Changes\" comment=\"\" />\r\n      <created>1693368200079</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1693368200079</updated>\r\n      <workItem from=\"1693368201033\" duration=\"2861000\" />\r\n      <workItem from=\"1693450179523\" duration=\"13506000\" />\r\n      <workItem from=\"1693605541712\" duration=\"1201000\" />\r\n      <workItem from=\"1693611837229\" duration=\"15243000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"001\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1693368522151</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1693368522151</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"001\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1693369197860</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1693369197860</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"001\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1693369223676</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1693369223676</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"001\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1693369314310</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1693369314310</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"001\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1693530906525</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1693530906525</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"001\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1693535608999</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1693535608999</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"001\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1693537331248</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1693537331248</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"001\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1693616328096</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1693616328096</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"001\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1693668482742</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1693668482742</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"001\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1693758231832</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1693758231832</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"11\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"001\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"001\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision cfc9149f7ab252b8a585a7578950a8fe72e5c7b3)
++++ b/.idea/workspace.xml	(date 1693775973669)
+@@ -6,6 +6,7 @@
+   <component name="ChangeListManager">
+     <list default="true" id="0ffc3e2f-af51-4007-974a-63af54c2f712" name="Changes" comment="001">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/PH/Logica/Control/HilosJuego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PH/Logica/Control/HilosJuego.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/PH/Presentacion/GUI/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PH/Presentacion/GUI/Window.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -142,7 +143,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1693758231832</updated>
+     </task>
+-    <option name="localTasksCounter" value="11" />
++    <task id="LOCAL-00011" summary="001">
++      <option name="closed" value="true" />
++      <created>1693760572373</created>
++      <option name="number" value="00011" />
++      <option name="presentableId" value="LOCAL-00011" />
++      <option name="project" value="LOCAL" />
++      <updated>1693760572373</updated>
++    </task>
++    <option name="localTasksCounter" value="12" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
