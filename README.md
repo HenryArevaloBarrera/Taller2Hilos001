@@ -1,7 +1,7 @@
 # Taller2Hilos001
 
 Integrantes :
-Henry Hair Arevalo Barrera 
+Henry Hair Arevalo Barrera --
 Ingrith Yiseth Rodriguez Lopez
 
 Descripción:
