@@ -10,9 +10,8 @@ import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.net.URL;
 
-public class Window extends JFrame implements ActionListener {
+public class Window extends JFrame implements ActionListener, ChangeListener {
     private final JLabel panel0;
     private final JLabel valor;
     private final JLabel usuario;
@@ -24,6 +23,8 @@ public class Window extends JFrame implements ActionListener {
     private final JButton boton2;
     private final JButton return1;
     private final JButton registro;
+    private final JButton retiro;
+    private int valorInicial;
     HilosJuego runOne;
     HilosJuego runTwo;
     HilosJuego runTree;
@@ -37,10 +38,12 @@ public class Window extends JFrame implements ActionListener {
     ImageIcon nuestroIcono3 = new ImageIcon("src/PH/Presentacion/Recursos/imagen1.png");
     ImageIcon nuestroIcono4 = new ImageIcon("src/PH/Presentacion/Recursos/imagen3.png");
 
-    public Window(String valorApuesta, String nombreParticipante) {
+    public Window(String valorApuesta, String nombreParticipante, String valorinicial) {
 
         Font font = new Font("Arial", Font.PLAIN, 100);
         Font font1 = new Font("Arial", Font.PLAIN, 20);
+
+        this.valorInicial = Integer.parseInt(valorinicial);
 
         this.valor = new JLabel("" + valorApuesta);
         this.valor.setBounds(90, 10, 100, 50);
@@ -49,7 +52,7 @@ public class Window extends JFrame implements ActionListener {
         this.valor.setFont(font1);
         this.valor.setForeground(Color.WHITE);
 
-        this.usuario = new JLabel("Usuario: " + nombreParticipante);
+        this.usuario = new JLabel("Jugador: " + nombreParticipante);
         this.usuario.setBounds(190, 10, 150, 50);
         this.usuario.setBackground(new Color(200, 200, 200));
         this.usuario.setBorder(null);
@@ -64,27 +67,31 @@ public class Window extends JFrame implements ActionListener {
         this.panel0.setIcon(nuestroIcono4);
 
 
-        this.panel1 = new JLabel("1");
+        this.panel1 = new JLabel();
         this.panel1.setBounds(70, 80, 100, 100);
         this.panel1.setBackground(new Color(200, 200, 200));
         this.panel1.setBorder(null);
         this.panel1.setFont(font);
         this.panel1.setForeground(Color.WHITE);
+        this.panel1.setIcon(new ImageIcon("src/PH/Presentacion/Recursos/figura10.png"));
 
-        this.panel2 = new JLabel("2");
+
+        this.panel2 = new JLabel();
         this.panel2.setBounds(190, 80, 100, 100);
         this.panel2.setBackground(new Color(200, 200, 200));
         this.panel2.setBorder(null);
         this.panel2.setFont(font);
         this.panel2.setForeground(Color.WHITE);
+        this.panel2.setIcon(new ImageIcon("src/PH/Presentacion/Recursos/figura10.png"));
 
 
-        this.panel3 = new JLabel("3");
+        this.panel3 = new JLabel();
         this.panel3.setBounds(310, 80, 100, 100);
         this.panel3.setBackground(new Color(200, 200, 200));
         this.panel3.setBorder(null);
         this.panel3.setFont(font);
         this.panel3.setForeground(Color.WHITE);
+        this.panel3.setIcon(new ImageIcon("src/PH/Presentacion/Recursos/figura10.png"));
 
 
         this.boton = new JButton("STOP");
@@ -111,6 +118,13 @@ public class Window extends JFrame implements ActionListener {
         this.registro.setBackground(new Color(230, 230, 230));
         this.registro.addActionListener(this);
 
+        this.retiro = new JButton("Me Retiro");
+        this.retiro.setBounds(350, 20, 130, 20);
+        this.retiro.setFont(font1);
+        this.retiro.setBackground(new Color(230, 230, 230));
+        this.retiro.addActionListener(this);
+        this.retiro.setBorderPainted(false);
+
         this.return1 = new JButton();
         this.return1.setBounds(450, 50, 50, 200);
         this.return1.setFont(font1);
@@ -129,7 +143,8 @@ public class Window extends JFrame implements ActionListener {
         this.add(this.boton);
         this.add(this.boton1);
         this.add(this.boton2);
-        this.add(this.registro);
+        this.add(this.retiro);
+
         this.add(this.return1);
         panel.setIcon(nuestroIcono);
 
@@ -140,21 +155,31 @@ public class Window extends JFrame implements ActionListener {
         this.setSize(530, 330);
         this.setTitle("Juego Con Hilos");
         this.setVisible(true);
-
+        setLocationRelativeTo(null);
 
     }
 
     public static void main(String[] args) {
-        new Window("", "");
+        new Window("", "", "");
     }
-
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
         Object componente = e.getSource();
         ControlMaquina cm = new ControlMaquina();
+
         if (componente.equals(return1)) {
-                if(cm.conteo(cm.getNumero())>=0) {
+            if (valor.getText().equals("0")) {
+                JOptionPane.showMessageDialog(null, "Te has quedado en bancarrota");
+                cm.registro(usuario.getText(), valor.getText(), valorInicial);
+                cm.dineroMaquina(valor.getText());
+                Window3 window3 = new Window3(usuario.getText(), valor.getText(), valorInicial);
+                window3.isVisible();
+                this.dispose();
+
+            } else {
+                if (cm.conteo(cm.getNumero()) >= 0) {
                     return1.setIcon(nuestroIcono2);
                     Timer timer = new Timer(500, new ActionListener() {
                         public void actionPerformed(ActionEvent evt) {
@@ -168,6 +193,7 @@ public class Window extends JFrame implements ActionListener {
                     runTwo = new HilosJuego(panel2, true);
 
                     runTree = new HilosJuego(panel3, true);
+
                     campo1 = new Thread(runOne);
                     campo2 = new Thread(runTwo);
                     campo3 = new Thread(runTree);
@@ -175,42 +201,87 @@ public class Window extends JFrame implements ActionListener {
                     campo1.start();
                     campo2.start();
                     campo3.start();
-                }else{
+                } else {
                     JOptionPane.showMessageDialog(null, "Rondas Finalizadas");
                 }
 
-        } else if (componente.equals(boton)) {
+            }
+        }
+        if (componente.equals(boton)) {
+
             runOne.stopThread();
-        } else if (componente.equals(boton1)) {
+
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException ex) {
+                throw new RuntimeException(ex);
+            }
+            registro.doClick();
+        }
+        if (componente.equals(boton1)) {
+
             runTwo.stopThread();
-        } else if (componente.equals(boton2)) {
+
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException ex) {
+                throw new RuntimeException(ex);
+            }
+            registro.doClick();
+        }
+        if (componente.equals(boton2)) {
+
             runTree.stopThread();
 
-        } else if (componente.equals(registro)) {
-            cm.registro(usuario.getText(), valor.getText());
-            cm.dineroMaquina(valor.getText());
-        }
-        if (campo1.getState().equals(Thread.State.TERMINATED) &&
-                campo2.getState().equals(Thread.State.TERMINATED) &&
-                campo3.getState().equals(Thread.State.TERMINATED)) {
-            if (panel1.getText().equals(panel2.getText()) && panel2.getText().equals(panel3.getText())) {
-                valor.setText(String.valueOf(cm.gananciaTriple(Integer.parseInt(valor.getText()))));
-            } else if (panel1.getText().equals(panel2.getText()) ||
-                    panel2.getText().equals(panel3.getText()) ||
-                    panel1.getText().equals(panel3.getText())) {
-                valor.setText(String.valueOf(cm.gananciaDoble(Integer.parseInt(valor.getText()))));
-
-            } else {
-                valor.setText(String.valueOf(cm.perdida(Integer.parseInt(valor.getText()))));
-
+            try {
+                Thread.sleep(20);
+            } catch (InterruptedException ex) {
+                throw new RuntimeException(ex);
             }
+            registro.doClick();
+        }
+        if (componente.equals(retiro)) {
+            int seleccion = JOptionPane.showConfirmDialog(null, "¿Estas seguro?", "Confirmación", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 
-            if (cm.finalJuego(Integer.parseInt(valor.getText())) == true) {
-                cm.registro(usuario.getText(), valor.getText());
+
+            if (seleccion == JOptionPane.YES_OPTION) {
+                cm.registro(usuario.getText(), valor.getText(), valorInicial);
                 cm.dineroMaquina(valor.getText());
-            }
+                Window3 window3 = new Window3(usuario.getText(), valor.getText(), valorInicial);
+                window3.isVisible();
+                this.dispose();
 
+            } else if (seleccion == JOptionPane.NO_OPTION) {
+
+
+            }
         }
+        if (componente.equals(registro)) {
+
+            if (campo1.getState().equals(Thread.State.TERMINATED) &&
+                    campo2.getState().equals(Thread.State.TERMINATED) &&
+                    campo3.getState().equals(Thread.State.TERMINATED)) {
+                if (panel1.getText().equals(panel2.getText()) && panel1.getText().equals(panel3.getText()) && panel2.getText().equals(panel3.getText())) {
+                    valor.setText(String.valueOf(cm.gananciaTriple(Integer.parseInt(valor.getText()))));
+                } else if (panel1.getText().equals(panel2.getText()) ||
+                        panel2.getText().equals(panel3.getText()) ||
+                        panel1.getText().equals(panel3.getText())) {
+                    valor.setText(String.valueOf(cm.gananciaDoble(Integer.parseInt(valor.getText()))));
+
+                } else {
+                    valor.setText(String.valueOf(cm.perdida(Integer.parseInt(valor.getText()))));
+
+                }
+
+
+            }
+        }
+
+
+    }
+
+    @Override
+    public void stateChanged(ChangeEvent e) {
 
     }
 }

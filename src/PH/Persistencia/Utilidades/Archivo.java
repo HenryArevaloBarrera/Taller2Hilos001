@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class Archivo {
 
 	public boolean SobreEscribirArchivo(String rutaArchivo, String texto) {
-		String ruta = "Recursos/" + rutaArchivo;
+		String ruta = rutaArchivo;
 		File archivo = new File(ruta);
 		boolean existe = false;
 		BufferedWriter bw;
@@ -39,7 +39,7 @@ public class Archivo {
 	}
 
 	public void AgregarContenidoArchivo(String rutaArchivo, String info) {
-		String ruta = "Recursos/" + rutaArchivo;
+		String ruta =  rutaArchivo;
 		File archivo = new File(ruta);
 
 		try {
@@ -55,8 +55,8 @@ public class Archivo {
 
 	}
 
-	public ArrayList<String> GetInfoContenido(String nombreArchivo) {
-		String ruta = "Recursos/" + nombreArchivo;
+	public static ArrayList<String> GetInfoContenido(String nombreArchivo) {
+		String ruta =  nombreArchivo;
 		// Convierte archivo en objeto
 		File archivo = new File(ruta);
 		ArrayList<String> Datos = new ArrayList<String>();

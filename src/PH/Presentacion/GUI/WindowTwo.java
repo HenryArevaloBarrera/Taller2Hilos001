@@ -62,11 +62,10 @@ public class WindowTwo extends JFrame implements ActionListener, ChangeListener 
         this.panel0.setBorder(null);
         this.panel0.setText("                           REGLAS               \n\n" +
                 "El jugador debe ingresar un valor inicial para comenzar a jugar.\n\n" +
-                "Si el jugador acierta las 3 ruletas, su valor se multiplicará.\n\n" +
-                "Si el jugador acierta 2 ruletas, su valor se multiplicará por 1.2.\n\n" +
+                "Si el jugador acierta las 3 ruletas, su valor se multiplicará por 3.\n\n" +
+                "Si el jugador acierta 2 ruletas, su valor se multiplicará por 2.\n\n" +
                 "Si el jugador no acierta ninguna de las ruletas, el valor que ingresó se reducirá a la mitad. \n\n" +
-                "Para obtener las ganancias es necesario que registre el juego \n\n"+
-                "Cada juego consta de 3 rondas para poder ganar.");
+                "Para obtener las ganancias es necesario que se RETIRE el juego \n\n");
         this.panel0.setLineWrap(true);
         this.panel0.setFont(new Font("Tahoma", Font.BOLD, 12));
         this.panel0.setOpaque(false);
@@ -86,7 +85,7 @@ public class WindowTwo extends JFrame implements ActionListener, ChangeListener 
         this.setSize(330, 530);
         this.setTitle("Juego Con Hilos");
         this.setVisible(true);
-
+        setLocationRelativeTo(null);
 
     }
 
@@ -103,7 +102,7 @@ public class WindowTwo extends JFrame implements ActionListener, ChangeListener 
                     JOptionPane.showMessageDialog(null," Agregar valor de la apuesta primero");
                 } else {
                     if (valor.getText().matches("\\d+")) {
-                        Window window=new Window(valor.getText(),nombre.getText());
+                        Window window=new Window(valor.getText(),nombre.getText(),valor.getText());
                         window.setVisible(true);
                         this.dispose();
                     } else {

@@ -6,7 +6,7 @@ import PH.Persistencia.Utilidades.Archivo;
 import java.util.ArrayList;
 
 public class DAOMaquina {
-    public final static String RUTA="dineroMaquina.csv";
+    public final static String RUTA="src/PH/Presentacion/Recursos/dineroMaquina.csv";
     public void IngresarMonto(Maquina datosM){
         String dato= datosM.getId()+","+
                 datosM.getDineroMaquina();
@@ -14,7 +14,7 @@ public class DAOMaquina {
     }
     public Maquina obtenerMonto(){
         ArrayList<String> Datos=new Archivo().GetInfoContenido(RUTA);
-       Maquina maquina = new Maquina();
+        Maquina maquina = new Maquina();
         for (int i = 0; i <Datos.size() ; i++) {
             String[] fila=Datos.get(i).split(",");
             maquina.setId(fila[0]);

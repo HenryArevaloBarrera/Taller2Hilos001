@@ -4,6 +4,16 @@ public class Historial {
     private String nombreUsuario;
     private int valorObtenido;
 
+    public int getValorInicial() {
+        return valorInicial;
+    }
+
+    public void setValorInicial(int valorInicial) {
+        this.valorInicial = valorInicial;
+    }
+
+    private int valorInicial;
+
     public Historial() {}
 
     public String getNombreUsuario() {

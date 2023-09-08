@@ -5,13 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ffc3e2f-af51-4007-974a-63af54c2f712" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/PH/Presentacion/GUI/Window3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Recursos/dineroMaquina.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Recursos/dineroMaquina.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Recursos/historialJuego.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Recursos/historialJuego.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PH/Logica/Control/ControlMaquina.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PH/Logica/Control/ControlMaquina.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PH/Logica/Control/HilosJuego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PH/Logica/Control/HilosJuego.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PH/Logica/Modelo/Historial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PH/Logica/Modelo/Historial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PH/Persistencia/DAOHistorialJuego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PH/Persistencia/DAOHistorialJuego.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PH/Persistencia/DAOMaquina.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PH/Persistencia/DAOMaquina.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PH/Persistencia/Utilidades/Archivo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PH/Persistencia/Utilidades/Archivo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PH/Presentacion/GUI/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PH/Presentacion/GUI/Window.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PH/Presentacion/GUI/WindowTwo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PH/Presentacion/GUI/WindowTwo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PH/Presentacion/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PH/Presentacion/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,9 +34,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="ProjectId" id="2UgjcNS4HmlVdqgFCRCNghXoeOL" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -93,6 +98,9 @@
       <workItem from="1693450179523" duration="13506000" />
       <workItem from="1693605541712" duration="1201000" />
       <workItem from="1693611837229" duration="15243000" />
+      <workItem from="1694012509643" duration="198000" />
+      <workItem from="1694037330008" duration="408000" />
+      <workItem from="1694056407457" duration="4986000" />
     </task>
     <task id="LOCAL-00001" summary="001">
       <option name="closed" value="true" />
@@ -180,14 +188,7 @@
       <option name="project" value="LOCAL" />
       <updated>1693785257504</updated>
     </task>
-    <task id="LOCAL-00012" summary="003">
-      <created>1693786247321</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1693786247321</updated>
-    </task>
-    <option name="localTasksCounter" value="13" />
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
